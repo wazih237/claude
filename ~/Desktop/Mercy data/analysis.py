@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Create a table
-print(pivot_table)
+print(province_pivot)
 
 # Create a graph for each unique feature in 'Province'
 provinces = data['Province'].unique()
