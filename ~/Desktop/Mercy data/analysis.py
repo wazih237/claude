@@ -54,3 +54,6 @@ for province in provinces:
     plt.tight_layout()
     plt.savefig(f"{province}_positif_bar_chart.png")
     plt.show()
+genital_rashes_count = positif_data['Genital Rashes'].count()
+non_nan_genital_rashes_count = genital_rashes_count - positif_data['Genital Rashes'].isna().sum()
+print(f"Total non NaN features in 'Genital Rashes' column: {non_nan_genital_rashes_count}")
