@@ -11,9 +11,15 @@ grouped_data = data.groupby(['Age group', 'Sex', 'Province'])['Final_Classificat
 pivot_table = grouped_data.pivot_table(index=['Age group', 'Sex'], columns='Province', values='Final_Classification', aggfunc='sum')
 
 # Create a heatmap
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# ...
+
+# Create a bar chart
 plt.figure(figsize=(10, 8))
-plt.imshow(pivot_table, cmap='hot', interpolation='nearest')
+sns.barplot(x='Province', y='Final_Classification', hue='Sex', data=pivot_table.reset_index())
 plt.xlabel('Province')
-plt.ylabel('Age group and Sex')
+plt.ylabel('Count of Final Classification')
 plt.title('Final Classification by Age group, Sex, and Province')
 plt.show()
