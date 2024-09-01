@@ -45,4 +45,12 @@ positif_province_counts = positif_data.groupby('Province').size().reset_index(na
 positif_province_counts = positif_province_counts.sort_values('Count', ascending=False)
 
 # Print the table
-print(positif_province_counts)
+provinces = positif_data['Province'].unique()
+for province in provinces:
+    province_data = positif_data[positif_data['Province'] == province]
+    plt.figure(figsize=(10, 8))
+    sns.barplot(x='Age group', y='Count', hue='Sex', data=province_data)
+    plt.title(f"Positif cases by Age group and Sex for {province}")
+    plt.tight_layout()
+    plt.savefig(f"{province}_positif_bar_chart.png")
+    plt.show()
