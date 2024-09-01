@@ -57,3 +57,5 @@ for province in provinces:
 genital_rashes_count = positif_data['Genital Rashes'].count()
 non_nan_genital_rashes_count = genital_rashes_count - positif_data['Genital Rashes'].isna().sum()
 print(f"Total non NaN features in 'Genital Rashes' column: {non_nan_genital_rashes_count}")
+oui_genital_rashes_count = positif_data[positif_data['Genital Rashes'] == 'Oui'].shape[0]
+print(f"Number of features with 'genital_rashes'=='Oui': {oui_genital_rashes_count}")
