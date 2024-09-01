@@ -94,3 +94,6 @@ data = pd.read_csv('clean_monkey_pox.csv')
 # Filter data for 'Positif' in 'Test_Result'
 positif_data = data[data['Test_Result'] == 'Positif']
 positif_data = data[data['Test_Result'] == 'Positif']
+epidemiological_link_oui_data = data[(data['Epidemiological_link'] == 'Oui')]
+epidemiological_link_oui_province_counts = epidemiological_link_oui_data.groupby('Province').size().reset_index(name='Count')
+print(epidemiological_link_oui_province_counts)
