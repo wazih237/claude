@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 
 # Load the data
 data = pd.read_csv('clean_monkey_pox.csv')
+data = data[data['Data'].dt.year == 2024]
 
 # Group by Age group, Sex, and Province, and count Final_Classification
 grouped_data = data.groupby(['Age group', 'Sex', 'Province'])['Final_Classification'].count().reset_index()
