@@ -99,3 +99,4 @@ epidemiological_link_oui_province_counts = epidemiological_link_oui_data.groupby
 print(epidemiological_link_oui_province_counts)
 positif_sexual_contact_province_counts = positif_sexual_contact_data.groupby('Province').size().reset_index(name='Count')
 print(positif_sexual_contact_province_counts)
+positif_data = data[data['Test_Result'] == 'Positif']
