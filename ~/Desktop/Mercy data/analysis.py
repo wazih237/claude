@@ -27,4 +27,6 @@ for province in provinces:
     plt.figure(figsize=(10, 8))
     sns.barplot(x='Age group', y='Final_Classification', hue='Sex', data=pivot_province.reset_index())
     plt.title(f"Final Classification by Age group and Sex for {province}")
+    plt.tight_layout()
+    plt.savefig(f"{province}_bar_chart.png")
     plt.show()
