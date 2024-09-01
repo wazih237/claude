@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Filter data for 'Positif' in 'Test_Result' and 'Genital Rashes' == 'Oui'
-positif_genital_rashes_data = positif_data[(positif_data['Test_Result'] == 'Positif') & (positif_data['Genital Rashes'] == 'Oui')]
+positif_genital_rashes_data = positif_data[(positif_data['Genital Rashes'] == 'Oui')]
 
 # Group by 'Province' and count
 positif_genital_rashes_province_counts = positif_genital_rashes_data.groupby('Province').size().reset_index(name='Count')
@@ -81,3 +81,8 @@ positif_genital_rashes_province_counts = positif_genital_rashes_data.groupby('Pr
 print(positif_genital_rashes_province_counts)
 hospitalization_oui_count = data[data['Hospitalization'] == 'Oui'].shape[0]
 print(f"Number of 'Hospitalization'=='Oui': {hospitalization_oui_count}")
+# Load the data
+data = pd.read_csv('clean_monkey_pox.csv')
+
+# Filter data for 'Positif' in 'Test_Result'
+positif_data = data[data['Test_Result'] == 'Positif']
