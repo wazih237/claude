@@ -45,7 +45,7 @@ import pandas as pd
 data = pd.read_csv('clean_monkey_pox.csv')
 
 # Filter data for 'Positif' in 'Test_Result'
-positif_data = data[data['Test_Result'] == 'Positif']
+positif_sexual_contact_data = data[(data['Sexual_contact_with_someone_with_skin_lesions/Mpox'] == 'Oui') & (data['Test_Result'] == 'Positif')]
 
 # Group by 'Province' and count
 positif_province_counts = positif_data.groupby('Province').size().reset_index(name='Count')
@@ -97,3 +97,5 @@ positif_data = data[data['Test_Result'] == 'Positif']
 epidemiological_link_oui_data = data[(data['Epidemiological_link'] == 'Oui')]
 epidemiological_link_oui_province_counts = epidemiological_link_oui_data.groupby('Province').size().reset_index(name='Count')
 print(epidemiological_link_oui_province_counts)
+positif_sexual_contact_province_counts = positif_sexual_contact_data.groupby('Province').size().reset_index(name='Count')
+print(positif_sexual_contact_province_counts)
