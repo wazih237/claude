@@ -86,3 +86,10 @@ data = pd.read_csv('clean_monkey_pox.csv')
 
 # Filter data for 'Positif' in 'Test_Result'
 positif_data = data[data['Test_Result'] == 'Positif']
+import pandas as pd
+
+# Load the data
+data = pd.read_csv('clean_monkey_pox.csv')
+
+# Filter data for 'Positif' in 'Test_Result'
+positif_data = data[data['Test_Result'] == 'Positif']
