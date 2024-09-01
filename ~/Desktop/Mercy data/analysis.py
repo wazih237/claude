@@ -79,3 +79,5 @@ positif_genital_rashes_province_counts = positif_genital_rashes_data.groupby('Pr
 
 # Print the table
 print(positif_genital_rashes_province_counts)
+hospitalization_oui_count = data[data['Hospitalization'] == 'Oui'].shape[0]
+print(f"Number of 'Hospitalization'=='Oui': {hospitalization_oui_count}")
