@@ -7,8 +7,9 @@ data = pd.read_csv('clean_monkey_pox.csv')
 # Group by Age group, Sex, and Province, and count Final_Classification
 grouped_data = data.groupby(['Age group', 'Sex', 'Province'])['Final_Classification'].count().reset_index()
 
-# Create a pivot table
-pivot_table = grouped_data.pivot_table(index=['Age group', 'Sex'], columns='Province', values='Final_Classification', aggfunc='sum')
+# Create a pivot table to show 'Age group', 'Sex' and group by 'Province'
+province_pivot = data.pivot_table(index=['Province', 'Age group', 'Sex'], values='Final_Classification', aggfunc='count')
+print(province_pivot)
 
 import matplotlib.pyplot as plt
 import seaborn as sns
