@@ -10,5 +10,20 @@ grouped_data = data.groupby(['Age group', 'Sex', 'Province'])['Final_Classificat
 # Create a pivot table
 pivot_table = grouped_data.pivot_table(index=['Age group', 'Sex'], columns='Province', values='Final_Classification', aggfunc='sum')
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 # Create a table
 print(pivot_table)
+
+# Create a graph for each unique feature in 'Province'
+provinces = data['Province'].unique()
+for province in provinces:
+    province_data = data[data['Province'] == province]
+    pivot_province = province_data.pivot_table(index=['Age group', 'Sex'], values='Final_Classification', aggfunc='count')
+    print(f"Table for {province}:")
+    print(pivot_province)
+    plt.figure(figsize=(10, 8))
+    sns.barplot(x='Age group', y='Final_Classification', hue='Sex', data=pivot_province.reset_index())
+    plt.title(f"Final Classification by Age group and Sex for {province}")
+    plt.show()
