@@ -63,3 +63,19 @@ for province in provinces:
     plt.tight_layout()
     plt.savefig(f"{province}_positif_bar_chart.png")
     plt.show()
+import pandas as pd
+
+# Load the data
+data = pd.read_csv('clean_monkey_pox.csv')
+
+# Filter data for 'Positif' in 'Test_Result'
+positif_data = data[data['Test_Result'] == 'Positif']
+
+# Filter data for 'Positif' in 'Test_Result' and 'Genital Rashes' == 'Oui'
+positif_genital_rashes_data = positif_data[(positif_data['Genital Rashes'] == 'Oui')]
+
+# Group by 'Province' and count
+positif_genital_rashes_province_counts = positif_genital_rashes_data.groupby('Province').size().reset_index(name='Count')
+
+# Print the table
+print(positif_genital_rashes_province_counts)
