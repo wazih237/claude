@@ -1,4 +1,13 @@
 import pandas as pd
+
+# Filter data for 'Positif' in 'Test_Result' and 'Genital Rashes' == 'Oui'
+positif_genital_rashes_data = positif_data[(positif_data['Test_Result'] == 'Positif') & (positif_data['Genital Rashes'] == 'Oui')]
+
+# Group by 'Province' and count
+positif_genital_rashes_province_counts = positif_genital_rashes_data.groupby('Province').size().reset_index(name='Count')
+
+# Print the table
+print(positif_genital_rashes_province_counts)
 import matplotlib.pyplot as plt
 
 # Load the data
