@@ -79,8 +79,8 @@ positif_genital_rashes_province_counts = positif_genital_rashes_data.groupby('Pr
 
 # Print the table
 print(positif_genital_rashes_province_counts)
-hospitalization_oui_count = data[data['Hospitalization'] == 'Oui'].shape[0]
-print(f"Number of 'Hospitalization'=='Oui': {hospitalization_oui_count}")
+hospitalization_positif_oui_count = data[(data['Hospitalization'] == 'Oui') & (data['Test_Result'] == 'Positif')].shape[0]
+print(f"Number of 'Hospitalization'=='Oui' and 'Test_Result'=='Positif': {hospitalization_positif_oui_count}")
 # Load the data
 data = pd.read_csv('clean_monkey_pox.csv')
 
