@@ -99,3 +99,12 @@ print(epidemiological_link_oui_province_counts)
 positif_sexual_contact_province_counts = positif_sexual_contact_data.groupby('Province').size().reset_index(name='Count')
 print(positif_sexual_contact_province_counts)
 positif_data = data[data['Test_Result'] == 'Positif']
+equateur_data = data[(data['Province'] == 'Equateur') & (data['Data'].dt.year == 2024)]
+equateur_data['Date'] = equateur_data['Date'].dt.to_period('W')
+equateur_weekly_classification = equateur_data.groupby('Date')['Final_Classification'].count().reset_index()
+plt.figure(figsize=(10, 8))
+sns.lineplot(x='Date', y='Final_Classification', data=equateur_weekly_classification)
+plt.title('Final Classification by Epidemiological Notification Week for Equateur in 2024')
+plt.tight_layout()
+plt.savefig('equateur_weekly_classification.png')
+plt.show()
