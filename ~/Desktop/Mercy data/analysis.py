@@ -98,14 +98,3 @@ print(epidemiological_link_oui_province_counts)
 positif_sexual_contact_province_counts = positif_sexual_contact_data.groupby('Province').size().reset_index(name='Count')
 print(positif_sexual_contact_province_counts)
 positif_data = data[data['Test_Result'] == 'Positif']
-import matplotlib.pyplot as plt
-
-# Create a pyramid chart for Sex
-sex_counts = data['Sex'].value_counts()
-plt.figure(figsize=(10, 8))
-plt.bar(sex_counts.index, sex_counts.values)
-plt.title("Sex Distribution")
-plt.xlabel("Sex")
-plt.ylabel("Count")
-plt.savefig("sex_pyramid.png")
-plt.show()
